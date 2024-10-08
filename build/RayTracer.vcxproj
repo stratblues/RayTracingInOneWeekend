@@ -318,6 +318,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\vec3.h" />
     <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\color.h" />
     <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\ray.h" />
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\hittable.h" />
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\sphere.h" />
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\hittable_list.h" />
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\rtweekend.h" />
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\interval.h" />
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\RayTracingOneWeekend\RayTracer\build\ZERO_CHECK.vcxproj">

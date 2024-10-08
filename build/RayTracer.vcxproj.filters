@@ -18,6 +18,24 @@
     <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\hittable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\hittable_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\rtweekend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\interval.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\RayTracingOneWeekend\RayTracer\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\RayTracingOneWeekend\RayTracer\CMakeLists.txt" />
