@@ -35,7 +35,7 @@ public:
         unsigned int thread_count = std::thread::hardware_concurrency();
         if (thread_count == 0) thread_count = 4; // Fallback to 4 threads if unable to detect
 
-        // Divide the image into vertical slices for each thread
+        // Divide the image into horizontal slices for each thread
         std::vector<std::thread> threads(thread_count);
 
         int rows_per_thread = image_height / thread_count;
@@ -160,13 +160,14 @@ private:
     {
         for (int j = start_row; j < end_row; ++j)
         {
-            // Update progress
+            // Update progress with locked thread to avoid garbled text
             {
                 static std::mutex mutex;
                 std::lock_guard<std::mutex> lock(mutex);
                 std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
             }
 
+            // Thead proccess assigned rows and write to 1D image buffer vector (image width * height)
             for (int i = 0; i < image_width; ++i)
             {
                 color pixel_color(0, 0, 0);
