@@ -17,7 +17,7 @@ public:
 class lambertian : public material
 {
 public:
-	lambertian(const color& albedo) : albedo(albedo){}
+	explicit lambertian(const color& albedo) : albedo(albedo){}
 
 	bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const override
 	{
@@ -39,7 +39,7 @@ private:
 class metal : public material
 {
 public:
-	metal(const color&albedo, double fuzz):albedo(albedo), fuzz(fuzz < 1 ? fuzz: 1){}
+	explicit metal(const color&albedo, double fuzz):albedo(albedo), fuzz(fuzz < 1 ? fuzz: 1){}
 
 	bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const override
 	{
@@ -59,11 +59,12 @@ class dielectric : public material
 {
 public:
 
-	dielectric(double refraction_index) : refraction_index(refraction_index){}
+	explicit dielectric(double refraction_index) : refraction_index(refraction_index){}
 
 	bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
 		const override
 	{
+		// attenutation = 1 meaning the glass surface absorbs nothing
 		attenuation = color(1.0, 1.0, 1.0);
 		double refractiveindex = rec.front_face ? (1.0 / refraction_index) : refraction_index;
 
@@ -74,16 +75,28 @@ public:
 		bool cannot_refract = refractiveindex * sin_theta > 1.0;
 		vec3 direction;
 
-		if (cannot_refract)
+		if (cannot_refract || reflectance(cos_theta, refractiveindex) > random_double())
+		{
 			direction = reflect(unit_direction, rec.normal);
+		}
 		else
+		{
 			direction = refract(unit_direction, rec.normal, refractiveindex);
+		}
 
 		scattered = ray(rec.p, direction);
 		return true;
 	}
 private:
 	double refraction_index;
+
+	static double reflectance(double cosine, double refraction_index)
+	{
+		// Schlick's approximation for reflectance
+		auto r0 = (1 - refraction_index) / (1 + refraction_index);
+		r0 = r0 * r0;
+		return r0 + (1 - r0) * std::pow((1 - cosine), 5);
+	}
 };
 
 
