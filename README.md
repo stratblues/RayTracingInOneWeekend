@@ -10,6 +10,6 @@ This project is a C++ implementation of **Ray Tracing In One Weekend**, a popula
 
  **Clone the repository**:
    ```bash
-   git clone https://github.com/stratblues/simple-ray-tracer-.git
+   git clone https://github.com/stratblues/RayTracingInOneWeekend.git
    cd raytracing
 
