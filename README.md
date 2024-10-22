@@ -1,6 +1,6 @@
 # Ray Tracing In One Weekend
 
-![Ray Tracing Image](<img width="599" alt="image" src="https://github.com/user-attachments/assets/0b384c2f-e6c6-4477-8e27-0e628cf85cf4">)
+<img width="599" alt="image" src="https://github.com/user-attachments/assets/0b384c2f-e6c6-4477-8e27-0e628cf85cf4">
 
 This project is a C++ implementation of **Ray Tracing In One Weekend** by Peter Shirley, a popular introductory guide to the principles of ray tracing. The program generates a ray-traced image by simulating the physical behavior of light interacting with surfaces in a 3D scene.
 
